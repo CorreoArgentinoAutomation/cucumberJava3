@@ -17,6 +17,7 @@ System.setProperty("webdriver.edge.driver", "Drivers/msedgedriver.exe");
         EdgeOptions options = new EdgeOptions();
         options.addArguments("--no-sandbox");
         options.addArguments("--disable-dev-shm-usage");
+        options.addArguments("--headless");
 driver = new EdgeDriver();
 driver.navigate().to("https://twsec02.correoargentino.com.ar/MiCorreo/public/login");
 Thread.sleep(5000);
