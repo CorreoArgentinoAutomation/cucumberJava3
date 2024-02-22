@@ -1,0 +1,237 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+  <modelVersion>4.0.0</modelVersion>
+  <groupId>org.example</groupId>
+  <artifactId>cucumberJava</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <name>Archetype - cucumberJava</name>
+  <url>http://maven.apache.org</url>
+
+
+  <properties>
+    <maven.compiler.source>21</maven.compiler.source>
+    <maven.compiler.target>21</maven.compiler.target>
+    <lombok.version>1.18.20</lombok.version>
+    <selenium.version>4.14.1</selenium.version>
+    <io.cucumber.version>7.15.0</io.cucumber.version>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+  </properties>
+
+  <dependencies>
+    <!-- Selenium WebDriver -->
+    <dependency>
+      <groupId>org.seleniumhq.selenium</groupId>
+      <artifactId>selenium-java</artifactId>
+      <version>4.16.1</version>
+    </dependency>
+
+    <!-- JUnit 5 -->
+    <dependency>
+      <groupId>org.junit.jupiter</groupId>
+      <artifactId>junit-jupiter-api</artifactId>
+      <version>5.10.0</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- Cucumber Dependencies -->
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-java</artifactId>
+      <version>${io.cucumber.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-junit</artifactId>
+      <version>${io.cucumber.version}</version>
+    </dependency>
+    <dependency>
+      <groupId>io.cucumber</groupId>
+      <artifactId>cucumber-core</artifactId>
+      <version>${io.cucumber.version}</version>
+    </dependency>
+
+    <!-- Extent Reports Cucumber 6 Adapter -->
+    <dependency>
+      <groupId>tech.grasshopper</groupId>
+      <artifactId>extentreports-cucumber6-adapter</artifactId>
+      <version>2.16.0</version>
+    </dependency>
+
+    <!-- Lombok -->
+    <dependency>
+      <groupId>org.projectlombok</groupId>
+      <artifactId>lombok</artifactId>
+      <version>${lombok.version}</version>
+      <optional>true</optional>
+    </dependency>
+
+
+    <!-- slf4j-api -->
+    <dependency>
+      <groupId>org.slf4j</groupId>
+      <artifactId>slf4j-api</artifactId>
+      <version>2.0.10</version>
+    </dependency>
+
+    <!-- logback-classic -->
+    <dependency>
+      <groupId>ch.qos.logback</groupId>
+      <artifactId>logback-classic</artifactId>
+      <version>1.4.14</version>
+      <scope>test</scope>
+    </dependency>
+
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-clean-plugin -->
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-clean-plugin</artifactId>
+      <version>3.2.0</version>
+    </dependency>
+
+
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-jar-plugin -->
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-jar-plugin</artifactId>
+      <version>3.3.0</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-site-plugin -->
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-site-plugin</artifactId>
+      <version>3.12.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-deploy-plugin -->
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-deploy-plugin</artifactId>
+      <version>3.1.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-install-plugin -->
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-install-plugin</artifactId>
+      <version>3.1.1</version>
+    </dependency>
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-project-info-reports-plugin -->
+    <!-- <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-project-info-reports-plugin</artifactId>
+      <version>2.0.</version>
+    </dependency> -->
+    <!-- https://mvnrepository.com/artifact/org.apache.maven.plugins/maven-resources-plugin -->
+    <dependency>
+      <groupId>org.apache.maven.plugins</groupId>
+      <artifactId>maven-resources-plugin</artifactId>
+      <version>3.3.1</version>
+    </dependency>
+
+
+  </dependencies>
+
+  <build>
+    <plugins>
+      <!-- Maven Compiler Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <version>3.11.0</version>
+      </plugin>
+
+      <!-- Maven Surefire Plugin for executing tests -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-surefire-plugin</artifactId>
+        <version>3.1.2</version>
+        <configuration>
+          <skip>false</skip>
+        </configuration>
+      </plugin>
+
+      <!-- Maven Source Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-source-plugin</artifactId>
+        <version>3.3.0</version>
+        <executions>
+          <execution>
+            <id>attach-sources</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Maven Javadoc Plugin -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-javadoc-plugin</artifactId>
+        <version>3.6.2</version>
+        <executions>
+          <execution>
+            <id>attach-javadocs</id>
+            <goals>
+              <goal>jar</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Maven Failsafe Plugin for running integration tests -->
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-failsafe-plugin</artifactId>
+        <version>3.1.2</version>
+        <executions>
+          <execution>
+            <configuration>
+              <includes>
+                <include>**/*Runner.java</include>
+                <include>**/RunnerTest.java</include>
+              </includes>
+              <parallel>methods</parallel>
+              <useUnlimitedThreads>true</useUnlimitedThreads>
+            </configuration>
+            <goals>
+              <goal>integration-test</goal>
+              <goal>verify</goal>
+            </goals>
+          </execution>
+        </executions>
+      </plugin>
+
+      <!-- Cucumber Reporting Plugin -->
+      <plugin>
+        <groupId>net.masterthought</groupId>
+        <artifactId>maven-cucumber-reporting</artifactId>
+        <version>3.11.0</version>
+        <executions>
+          <execution>
+            <id>execution</id>
+            <phase>verify</phase>
+            <goals>
+              <goal>generate</goal>
+            </goals>
+            <configuration>
+              <projectName>CucumberReport</projectName>
+              <outputDirectory>${project.build.directory}/site</outputDirectory>
+              <cucumberOutput>${project.build.directory}/build/cucumber.json</cucumberOutput>
+              <jsonFiles>
+                <!-- supports wildcard or name pattern -->
+                <param>**/*.json</param>
+              </jsonFiles>
+              <parallelTesting>false</parallelTesting>
+              <!-- optional, set true to fail build on test failures -->
+              <checkBuildResult>false</checkBuildResult>
+            </configuration>
+          </execution>
+        </executions>
+      </plugin>
+      <!-- desde acá -->
+
+      <!-- hasta acá -->
+    </plugins>
+  </build>
+
+</project>
